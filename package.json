@@ -7,19 +7,29 @@
   "scripts": {
     "start": "npm run build && node ./dist/api/server.js",
     "dev": "tsnd src/api/server.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "mocha ./tests/**/*$NAME*.test.js --exit",
+    "test-dev": "mocha -r ts-node/register tests/**/*.test.ts"
   },
   "devDependencies": {
+    "@types/chai": "^4.3.0",
     "@types/express": "^4.17.13",
+    "@types/mocha": "^9.1.0",
     "@types/node": "^17.0.21",
+    "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "mocha": "^9.2.2",
+    "sinon": "^13.0.1",
+    "supertest": "^6.2.2",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.6.2"
   },
