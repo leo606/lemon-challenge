@@ -2,4 +2,4 @@ import app from "./app";
 
 const PORT = 3001;
 
-app.listen(PORT, () => console.log("listening port", PORT));
+app.listen(PORT, () => console.log('listening port', PORT));
