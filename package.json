@@ -1,0 +1,10 @@
+{
+  "name": "lemon-challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Leonardo Ferreira",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.6.2"
+  }
+}
