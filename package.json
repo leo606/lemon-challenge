@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run build && node ./dist/api/server.js",
-    "dev": "tsnd api/server.ts",
+    "dev": "tsnd src/api/server.ts",
     "build": "tsc"
   },
   "devDependencies": {
