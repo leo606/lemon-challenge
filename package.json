@@ -8,7 +8,6 @@
     "start": "npm run build && node ./dist/api/server.js",
     "dev": "tsnd src/api/server.ts",
     "build": "tsc",
-    "test": "mocha ./tests/**/*$NAME*.test.js --exit",
     "test-dev": "mocha -r ts-node/register tests/**/*.test.ts"
   },
   "devDependencies": {
