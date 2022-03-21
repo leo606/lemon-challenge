@@ -24,7 +24,8 @@
           "ts": "never",
           "tsx": "never"
         }
-     ]
+     ],
+     "no-unused-vars": ["error", { "argsIgnorePattern": "next" }]
     },
     "settings": {
       "import/resolver": {
