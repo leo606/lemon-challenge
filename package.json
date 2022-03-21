@@ -4,6 +4,11 @@
   "main": "index.js",
   "author": "Leonardo Ferreira",
   "license": "MIT",
+  "scripts": {
+    "start": "npm run build && node ./dist/api/server.js",
+    "dev": "tsnd api/server.ts",
+    "build": "tsc"
+  },
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.21",
