@@ -3,8 +3,9 @@ import clientEligibility from './clientEligibility';
 
 function clientReport(client:Client): boolean {
   const clientEligible = clientEligibility(client);
+  console.log('elig', clientEligible);
 
-  if (clientEligible) {
+  if (clientEligible.every((validation) => validation)) {
     // gen positive report
   } else {
     // gen negative report

@@ -37,12 +37,12 @@ function minConsumptionValidation(client:Client): boolean {
   return consumptionAverage > minConsumption;
 }
 
-function clientEligibility(client:Client):boolean {
+function clientEligibility(client:Client):boolean[] {
   const consumptionValid = consumptionClassValidation(client.classeDeConsumo);
   const tariffValid = tariffValidation(client.modalidadeTarifaria);
   const minConsumptionValid = minConsumptionValidation(client);
 
-  return consumptionValid && tariffValid && minConsumptionValid;
+  return [consumptionValid, tariffValid, minConsumptionValid];
 }
 
 export default clientEligibility;
