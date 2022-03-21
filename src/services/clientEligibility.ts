@@ -13,14 +13,14 @@ function getConsumptionAverage(consumptionHistory:number[]):number {
   return sum / amount;
 }
 
-function consumptionClassValidation(client:Client): boolean {
+function consumptionClassValidation(classeDeConsumo:string): boolean {
   const accepted = ['comercial', 'residencial', 'industrial'];
-  return accepted.includes(client.classeDeConsumo);
+  return accepted.includes(classeDeConsumo);
 }
 
-function tariffValidation(client:Client): boolean {
+function tariffValidation(modalidadeTarifaria:string): boolean {
   const accepted = ['convencional', 'branca'];
-  return accepted.includes(client.modalidadeTarifaria);
+  return accepted.includes(modalidadeTarifaria);
 }
 
 function minConsumptionValidation(client:Client): boolean {
@@ -38,8 +38,8 @@ function minConsumptionValidation(client:Client): boolean {
 }
 
 function clientEligibility(client:Client):boolean {
-  const consumptionValid = consumptionClassValidation(client);
-  const tariffValid = tariffValidation(client);
+  const consumptionValid = consumptionClassValidation(client.classeDeConsumo);
+  const tariffValid = tariffValidation(client.modalidadeTarifaria);
   const minConsumptionValid = minConsumptionValidation(client);
 
   return consumptionValid && tariffValid && minConsumptionValid;
