@@ -1,10 +1,14 @@
-import Client, { ConsumptionTypes, TariffType, ConnectionTypes } from '../../../interfaces/Client';
+import Client, {
+  ConsumptionTypes,
+  TariffType,
+  ConnectionTypes,
+} from '../../../interfaces/Client';
 import { EligibleReport, IneligibleReport } from '../../../interfaces/Reports';
 
 class Validation {
   private tariff: TariffType;
 
-  private consumption:ConsumptionTypes;
+  private consumption: ConsumptionTypes;
 
   private consumptionHistory: number[];
 
@@ -18,7 +22,7 @@ class Validation {
 
   private consumptionAccept = ['comercial', 'residencial', 'industrial'];
 
-  private ineligibleMessages:{[key:string]: string} = {
+  private ineligibleMessages: { [key: string]: string } = {
     consumption: 'Classe de consumo não atendida',
     tariff: 'Modalidade tarifária não aceita',
     minConsumptio: 'Consumo médio não aceito',
@@ -30,7 +34,7 @@ class Validation {
     trifasico: 750,
   };
 
-  constructor(client:Client) {
+  constructor(client: Client) {
     this.tariff = client.modalidadeTarifaria;
     this.consumption = client.classeDeConsumo;
     this.consumptionHistory = client.historicoDeConsumo;
@@ -81,8 +85,8 @@ class Validation {
     const eligibility = this.eligibilityValidation as {[key:string]: boolean};
 
     return Object.keys(eligibility)
-      .filter((key:string):boolean => !eligibility[key])
-      .map((key:string):string => this.ineligibleMessages[key]);
+      .filter((key: string): boolean => !eligibility[key])
+      .map((key: string): string => this.ineligibleMessages[key]);
   }
 
   get reportNotEligible(): IneligibleReport {
