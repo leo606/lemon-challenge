@@ -8,8 +8,9 @@ function getLastTwelveMonths(consumptionHistory:number[]):number[] {
 }
 
 function getConsumptionAverage(consumptionHistory:number[]):number {
-  const amount = consumptionHistory.length;
-  const sum = consumptionHistory.reduce((acc, curr) => acc + curr);
+  const consumptionLastTwelveMonths = getLastTwelveMonths(consumptionHistory);
+  const amount = consumptionLastTwelveMonths.length;
+  const sum = consumptionLastTwelveMonths.reduce((acc, curr) => acc + curr);
   return sum / amount;
 }
 
@@ -24,8 +25,7 @@ function tariffValidation(modalidadeTarifaria:string): boolean {
 }
 
 function minConsumptionValidation(client:Client): boolean {
-  const consumptionHistory = getLastTwelveMonths(client.historicoDeConsumo);
-  const consumptionAverage = getConsumptionAverage(consumptionHistory);
+  const consumptionAverage = getConsumptionAverage(client.historicoDeConsumo);
 
   const minConsumptionByConnType = {
     monofasico: 400,
