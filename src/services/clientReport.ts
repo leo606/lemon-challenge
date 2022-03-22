@@ -1,20 +1,18 @@
 import Client from '../interfaces/Client';
 import { EligibleReport, IneligibleReport } from '../interfaces/Reports';
-import { clientEligibility } from './clientEligibility';
+import { eligibilityValidation } from './eligibilityValidation';
 import { eligibleReport, ineligibleReport } from './genReports';
 
 function clientReport(client:Client): EligibleReport|IneligibleReport {
-  const clientEligible = clientEligibility(client);
-  let report:EligibleReport|IneligibleReport;
+  const clientEligibility = eligibilityValidation(client);
+  let report: EligibleReport | IneligibleReport;
 
-  if (clientEligible.every((validation:boolean) => validation)) {
+  if (clientEligibility.every((validation:boolean) => validation)) {
     // gen positive report
     report = eligibleReport(client);
-    console.log(report);
   } else {
     // gen negative report
-    report = ineligibleReport(clientEligible);
-    console.log(report);
+    report = ineligibleReport(clientEligibility);
   }
 
   return report;

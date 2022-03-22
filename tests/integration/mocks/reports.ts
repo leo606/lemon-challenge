@@ -1,5 +1,5 @@
 const ClientCorrectReport = {
-  elegivel: true,
+  elegível: true,
   economiaAnualDeCO2: 462.77,
 };
 

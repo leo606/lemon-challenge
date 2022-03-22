@@ -1,13 +1,14 @@
 import Client from '../interfaces/Client';
+import ClientEligibility from '../interfaces/EligibilityValidation';
 
-function getLastTwelveMonths(consumptionHistory:number[]):number[] {
+function getLastTwelveMonths(consumptionHistory:number[]): number[] {
   if (consumptionHistory.length <= 12) {
     return consumptionHistory;
   }
   return consumptionHistory.splice(0, 12);
 }
 
-function getConsumptionAverage(consumptionHistory:number[]):number {
+function getConsumptionAverage(consumptionHistory:number[]): number {
   const consumptionLastTwelveMonths = getLastTwelveMonths(consumptionHistory);
   const amount = consumptionLastTwelveMonths.length;
   const sum = consumptionLastTwelveMonths.reduce((acc, curr) => acc + curr);
@@ -37,7 +38,7 @@ function minConsumptionValidation(client:Client): boolean {
   return consumptionAverage > minConsumption;
 }
 
-function clientEligibility(client:Client):boolean[] {
+function eligibilityValidation(client:Client): ClientEligibility {
   const consumptionValid = consumptionClassValidation(client.classeDeConsumo);
   const tariffValid = tariffValidation(client.modalidadeTarifaria);
   const minConsumptionValid = minConsumptionValidation(client);
@@ -46,6 +47,6 @@ function clientEligibility(client:Client):boolean[] {
 }
 
 export {
-  clientEligibility,
+  eligibilityValidation,
   getConsumptionAverage,
 };

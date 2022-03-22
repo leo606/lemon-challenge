@@ -10,7 +10,7 @@ async function getClientEligibility(req:Request, res:Response) {
 
   const report = clientReport(client);
 
-  res.status(StatusCodes.NOT_IMPLEMENTED).end();
+  res.status(StatusCodes.OK).json(report);
 }
 
 export default (router: Router) => {
