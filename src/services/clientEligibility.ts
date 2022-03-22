@@ -45,4 +45,7 @@ function clientEligibility(client:Client):boolean[] {
   return [consumptionValid, tariffValid, minConsumptionValid];
 }
 
-export default clientEligibility;
+export {
+  clientEligibility,
+  getConsumptionAverage,
+};
