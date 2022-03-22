@@ -8,7 +8,8 @@
     "start": "npm run build && node ./dist/api/server.js",
     "dev": "tsnd src/api/server.ts",
     "build": "tsc",
-    "test-dev": "mocha -r ts-node/register tests/**/*.test.ts"
+    "test-dev": "mocha -r ts-node/register tests/**/*.test.ts",
+    "test-dev:coverage": "nyc mocha -r ts-node/register tests/**/*.test.ts"
   },
   "devDependencies": {
     "@types/chai": "^4.3.0",
@@ -27,6 +28,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "mocha": "^9.2.2",
+    "nyc": "^15.1.0",
     "sinon": "^13.0.1",
     "supertest": "^6.2.2",
     "ts-node-dev": "^1.1.8",
