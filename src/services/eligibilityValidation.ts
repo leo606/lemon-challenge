@@ -5,7 +5,7 @@ function getLastTwelveMonths(consumptionHistory:number[]): number[] {
   if (consumptionHistory.length <= 12) {
     return consumptionHistory;
   }
-  return consumptionHistory.splice(0, 12);
+  return consumptionHistory.slice(0, 12);
 }
 
 function getConsumptionAverage(consumptionHistory:number[]): number {
