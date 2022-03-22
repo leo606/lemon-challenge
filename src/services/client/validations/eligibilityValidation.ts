@@ -1,5 +1,5 @@
-import Client from '../interfaces/Client';
-import ClientEligibility from '../interfaces/EligibilityValidation';
+import Client from '../../../interfaces/Client';
+import ClientEligibility from '../../../interfaces/EligibilityValidation';
 
 function getLastTwelveMonths(consumptionHistory:number[]): number[] {
   if (consumptionHistory.length <= 12) {

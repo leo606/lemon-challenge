@@ -1,7 +1,7 @@
-import Client from '../interfaces/Client';
-import ClientEligibility from '../interfaces/EligibilityValidation';
-import { EligibleReport, IneligibleReport } from '../interfaces/Reports';
-import { getConsumptionAverage } from './eligibilityValidation';
+import Client from '../../../interfaces/Client';
+import ClientEligibility from '../../../interfaces/EligibilityValidation';
+import { EligibleReport, IneligibleReport } from '../../../interfaces/Reports';
+import { getConsumptionAverage } from '../validations/eligibilityValidation';
 
 const CO2_PER_YEAR_KG = 84;
 
