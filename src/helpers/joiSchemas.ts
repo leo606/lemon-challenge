@@ -13,7 +13,7 @@ const clientSchema = Joi.object().keys({
   modalidadeTarifaria: Joi.string().valid('azul', 'branca', 'verde', 'convencional').required(),
   historicoDeConsumo: Joi.array().items(
     Joi.number().integer().min(0).max(9999),
-  ).min(3).max(12),
+  ).min(3),
 });
 
 export default clientSchema;

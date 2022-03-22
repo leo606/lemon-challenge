@@ -53,7 +53,10 @@ const clientNotEligibleByMinCons = {
   tipoDeConexao: "bifasico",
   classeDeConsumo: "comercial",
   modalidadeTarifaria: "branca",
-  historicoDeConsumo: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+  historicoDeConsumo: [
+    3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 9999, 9999, 9999, 9999, 9999, 9999,
+    9999, 9999, 9999, 9999, 9999, 9999, 9999,
+  ],
 };
 
 const clientNotEligibleByAll = {
