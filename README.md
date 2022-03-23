@@ -28,7 +28,7 @@ Projeto desenvolvido usando TypeScript, refere-se a uma API que recebe dados de 
 
 ### Retorna o relatório referente ao cliente
 
-```http
+```javascript
   GET /
 ```
 
