@@ -243,7 +243,7 @@ describe("testa métodos da classe Validation", () => {
         .that.is.eql(["Modalidade tarifária não aceita"]);
     });
 
-    it("retorna um relatorio positivo com cliente nao elegível", () => {
+    it("retorna um relatorio positivo com cliente elegível", () => {
       const instance = new Validation({
         ...clients.ELclient1,
       });
