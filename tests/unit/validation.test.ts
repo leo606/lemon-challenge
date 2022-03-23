@@ -4,6 +4,7 @@ import "mocha";
 
 import clients from "./mocks/clients";
 import { expect } from "chai";
+import { equal } from "assert";
 
 describe("testa métodos da classe Validation", () => {
   describe("método tariffValidation", () => {
@@ -138,6 +139,123 @@ describe("testa métodos da classe Validation", () => {
         historicoDeConsumo: [751, 751, 751, 751, 751, 751, 751, 751, 751, 751],
       });
       expect(instance.minConsumptionValidation).to.be.true;
+    });
+  });
+
+  describe("método minConsumptionValidation", () => {
+    it("retorna a média correta com menos de 12 meses", () => {
+      const instance = new Validation({
+        ...clients.NEclient1,
+        historicoDeConsumo: [1000, 2000, 3000],
+      });
+      expect(instance.getConsumptionAverage).to.be.eq(2000);
+    });
+
+    it("retorna a média correta com mais de 12 meses", () => {
+      const instance = new Validation({
+        ...clients.NEclient1,
+        historicoDeConsumo: [
+          1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000,
+          12000, 13000, 14000, 15000,
+        ],
+      });
+      expect(instance.getConsumptionAverage).to.be.eq(6500);
+    });
+  });
+
+  describe("método eligibilityValidation", () => {
+    it("retorna um objeto de validacoes com as chaves corretas", () => {
+      const instance = new Validation({
+        ...clients.NEclient1,
+        historicoDeConsumo: [1000, 2000, 3000],
+      });
+
+      expect(instance.eligibilityValidation).to.be.an("object").that.includes({
+        consumption: true,
+        tariff: false,
+        minConsumptio: true,
+      });
+    });
+  });
+
+  describe("método CO2Economy", () => {
+    it("retorna um número com a economia correta", () => {
+      const instance = new Validation({
+        ...clients.NEclient1,
+        historicoDeConsumo: [
+          3878, 9760, 5976, 2797, 2481, 5731, 7538, 4392, 7859, 4160, 6941,
+          4597,
+        ],
+      });
+
+      expect(instance.CO2Economy).to.be.eq(462.77);
+    });
+  });
+
+  describe("método rejectReasons", () => {
+    it("retorna um array com as razoes corretas - media de consumo", () => {
+      const instance = new Validation({
+        ...clients.ELclient1,
+        historicoDeConsumo: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      });
+
+      expect(instance.rejectReasons)
+        .to.be.an("array")
+        .eql(["Consumo médio não aceito"]);
+    });
+
+    it("retorna um array com as razoes corretas - classe de consumo", () => {
+      const instance = new Validation({
+        ...clients.ELclient1,
+        classeDeConsumo: "rural",
+      });
+
+      expect(instance.rejectReasons)
+        .to.be.an("array")
+        .eql(["Classe de consumo não atendida"]);
+    });
+
+    it("retorna um array com as razoes corretas - modalidade tarifária", () => {
+      const instance = new Validation({
+        ...clients.ELclient1,
+        modalidadeTarifaria: "verde",
+      });
+
+      expect(instance.rejectReasons)
+        .to.be.an("array")
+        .eql(["Modalidade tarifária não aceita"]);
+    });
+  });
+
+  describe("método report", () => {
+    it("retorna um relatorio negativo com cliente nao elegível", () => {
+      const instance = new Validation({
+        ...clients.NEclient1,
+      });
+
+      expect(instance.report())
+        .to.be.an("object")
+        .that.have.property("elegível").that.is.false;
+
+      expect(instance.report())
+        .to.be.an("object")
+        .that.have.property("razoesInelegibilidade")
+        .that.is.eql(["Modalidade tarifária não aceita"]);
+    });
+
+    it("retorna um relatorio positivo com cliente nao elegível", () => {
+      const instance = new Validation({
+        ...clients.ELclient1,
+      });
+
+      expect(instance.report())
+        .to.be.an("object")
+        .that.have.property("elegível").that.is.true;
+
+      expect(instance.report())
+        .to.be.an("object")
+        .that.have.property("economiaAnualDeCO2")
+        .that.is.eql(462.77);
     });
   });
 });
