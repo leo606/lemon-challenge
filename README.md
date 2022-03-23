@@ -1,5 +1,4 @@
-
-# Desafio Técnico Back-end Lemon
+# Validação de eligibilidade de cliente
 
 Essa é uma API rest para checagem de eligibilidade de aquisição de cliente. A API recebe dados referentes a conta de energia do cliente e de acordo com os dados, informa se o cliente é elegível. Caso o cliente não seja elegível, a API retorna os motivos pelos quais o cliente não é elegível, e, caso o cliente seja elegível a API retorna a projeção de quantidade de CO2 que deixaria de ser emitida ao usar energia limpa, baseando-se na média de consumo.
 
