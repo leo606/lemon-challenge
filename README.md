@@ -103,7 +103,7 @@ Saida:
 | :---------- | :--------- |
 | `PORT`      | Porta para o servidor ouvir |
 
-## Rodando localmente
+## Rodando Localmente
 
 **Pre-requisitos:** node, npm
 
