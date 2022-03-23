@@ -171,6 +171,35 @@ Foi escrito testes de integração e testes unitários para a aplicação. Foi u
 
 ![test coverage](images/tests_list.png)
 
+## Arquitetura
+
+O projeto foi organizado seguindo conceitos da arquitetura MSC _Model Service Controller_. Em Controller foi organizado as rotas da API e middlewares. Em Service foi feito todas as regras de negócio para a validação de eligibilidade. Não há a camada Model devido a ausência de banco de dados na aplicação.
+
+```bash
+src
+├── api
+│   ├── app.ts
+│   └── server.ts
+├── controllers
+│   ├── client
+│   │   └── get.ts
+│   └── root.ts
+├── helpers
+│   └── joiSchemas.ts
+├── interfaces
+│   ├── Client.ts
+│   ├── ErrorResponse.ts
+│   └── Reports.ts
+├── middlewares
+│   ├── clientValidation.ts
+│   └── error.ts
+└── services
+    └── client
+        ├── clientReport.ts
+        └── validations
+            └── Validation.ts
+```
+
 ## Aprendizados
 
 Foi muito valioso o aprendizado adquirido com relação a Typescript e classes durante o desenvolvimento desse projeto. Existem pontos a melhorar com relação a arquitetura e organização do código, e organização de testes. Agradeço a David Gonzaga pela disponibilidade em tirar dúvidas e ajudar.
