@@ -201,6 +201,9 @@ src
             └── Validation.ts
 ```
 
+## Lint
+Foi configurado o lint usando as configurações [Airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
+
 ## Aprendizados
 
 Foi muito valioso o aprendizado adquirido com relação a Typescript e classes durante o desenvolvimento desse projeto. Existem pontos a melhorar com relação a arquitetura e organização do código, e organização de testes. Agradeço a David Gonzaga pela disponibilidade em tirar dúvidas e ajudar.
