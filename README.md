@@ -149,7 +149,7 @@ Entre no diretório do projeto
 Crie a docker image
 
 ```bash
-  sudo docker image build -t lemon .
+  sudo docker image build -t lemon ./
 ```
 
 Crie e inicie o conteiner
@@ -157,7 +157,7 @@ Crie e inicie o conteiner
 ```bash
   sudo docker container run -dit -p 3001:3001 --name lemon-c lemon
 ```
-_O oservidor será exposto na porta 3001_
+_O servidor será exposto na porta 3001_
 
 ## Testes
 
