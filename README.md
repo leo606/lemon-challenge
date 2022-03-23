@@ -1,9 +1,9 @@
 
 # Desafio Técnico Back-end Lemon
 
-Projeto desenvolvido para teste técnico do processo seletivo da Lemon Energia.
+Essa é uma API rest para checagem de eligibilidade de aquisição de cliente. A API recebe dados referentes a conta de energia do cliente e de acordo com os dados, informa se o cliente é elegível. Caso o cliente não seja elegível, a API retorna os motivos pelos quais o cliente não é elegível, e, caso o cliente seja elegível a API retorna a projeção de quantidade de CO2 que deixaria de ser emitida ao usar energia limpa, baseando-se na média de consumo.
 
-Projeto desenvolvido usando TypeScript, refere-se a uma API que recebe dados de cliente e faz a checagem das informações e retorna se o cliente é elegível ou não, conforme as regras de negócio.
+Projeto NodeJS, desenvolvido usando TypeScript, foi escrito testes unitário e testes de integração. Também está sendo disponibilizado a configuração para rodar o projeto em container Docker.
 
 ## Índice
 
@@ -162,7 +162,7 @@ _O servidor será exposto na porta 3001_
 
 ## Testes
 
-Foi escrito testes de integração e testes unitários para a aplicação. Foi usado as bibliotecas `mocha`, `chai` para a realização dos testes.
+Foi escrito testes de integração e testes unitários para a aplicação. Foi usado as bibliotecas [mocha](https://mochajs.org), [chai](https://www.chaijs.com) para a realização dos testes.
 
 ### Cobertura de Teste:
 
