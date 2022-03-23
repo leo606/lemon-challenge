@@ -85,5 +85,59 @@ describe("testa métodos da classe Validation", () => {
       });
       expect(instance.minConsumptionValidation).to.be.false;
     });
+
+    it("retorna false em conexao Bifásica e média de 400kWh", () => {
+      const instance = new Validation({
+        ...clients.NEclient1,
+        tipoDeConexao: "bifasico",
+        historicoDeConsumo: [400, 400, 400, 400, 400, 400, 400, 400, 400, 400],
+      });
+      expect(instance.minConsumptionValidation).to.be.false;
+    });
+
+    it("retorna false em conexao trifasico e média de 600kWh", () => {
+      const instance = new Validation({
+        ...clients.NEclient1,
+        tipoDeConexao: "trifasico",
+        historicoDeConsumo: [600, 600, 600, 600, 600, 600, 600, 600, 600, 600],
+      });
+      expect(instance.minConsumptionValidation).to.be.false;
+    });
+
+    it("retorna false em conexao trifasico e média de exatos 750kWh", () => {
+      const instance = new Validation({
+        ...clients.NEclient1,
+        tipoDeConexao: "trifasico",
+        historicoDeConsumo: [750, 750, 750, 750, 750, 750, 750, 750, 750, 750],
+      });
+      expect(instance.minConsumptionValidation).to.be.false;
+    });
+
+    it("retorna true em conexao monofasico e média de 401kWh", () => {
+      const instance = new Validation({
+        ...clients.NEclient1,
+        tipoDeConexao: "monofasico",
+        historicoDeConsumo: [401, 401, 401, 401, 401, 401, 401, 401, 401, 401],
+      });
+      expect(instance.minConsumptionValidation).to.be.true;
+    });
+
+    it("retorna true em conexao bifasico e média de 501kWh", () => {
+      const instance = new Validation({
+        ...clients.NEclient1,
+        tipoDeConexao: "bifasico",
+        historicoDeConsumo: [501, 501, 501, 501, 501, 501, 501, 501, 501, 501],
+      });
+      expect(instance.minConsumptionValidation).to.be.true;
+    });
+
+    it("retorna true em conexao trifasico e média de 751kWh", () => {
+      const instance = new Validation({
+        ...clients.NEclient1,
+        tipoDeConexao: "trifasico",
+        historicoDeConsumo: [751, 751, 751, 751, 751, 751, 751, 751, 751, 751],
+      });
+      expect(instance.minConsumptionValidation).to.be.true;
+    });
   });
 });
