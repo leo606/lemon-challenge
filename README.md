@@ -11,11 +11,12 @@ Projeto desenvolvido usando TypeScript, refere-se a uma API que recebe dados de 
 - [**Documentação da API**](#documentação-da-api)
   - [Exemplos](#exemplos)
   - [Variáveis de Ambiente](#variáveis-de-ambiente)
-  - [Crop Video](#crop-video)
-  - [Concatenate Videos](#concatenate-videos)
 - [**Rodando localmente**](#rodando-localmente)
 - [**Rodando com Docker**](#rodando-com-docker)
 - [**Testes**](#testes)
+- [**Arquitetura**](#arquitetura)
+- [**Aprendizados**](#aprendizados)
+
 
 ## Stack Utilizada
 
